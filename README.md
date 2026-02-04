@@ -12,6 +12,9 @@
 - 上游 Grok 请求统一走 `curl-impersonate`，降低被上游拦截概率。
 - 配置加载合并默认值，支持后台在线修改并持久化。
 
+系统首页截图：  
+![系统首页截图](docs/images/1image.png)
+
 ## 2. 安装步骤
 
 - 先下载并解压 [curl-impersonate](https://github.com/lwthiker/curl-impersonate/releases/)
@@ -140,6 +143,9 @@ chmod +x grok2api-rs/grok2api-rs
 SERVER_HOST=0.0.0.0 SERVER_PORT=8000 ./grok2api-rs/grok2api-rs
 ```
 
+系统部署执行截图：  
+![系统部署执行截图](docs/images/7image.png)
+
 ### 项目编译教程（命令行）
 
 ```bash
@@ -176,6 +182,39 @@ curl http://127.0.0.1:8000/v1/responses \
   }'
 ```
 
+Responses 调用 grok-4 文本问答截图：  
+![Responses 文本问答截图](docs/images/3image.png)
+
+Responses 图片生成：
+
+```bash
+curl http://127.0.0.1:8000/v1/responses \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "grok-imagine-1.0",
+    "input": [
+      {"type":"input_text","text":"画一只在太空漂浮的猫"}
+    ]
+  }'
+```
+
+Responses 调用生图截图：  
+![Responses 生图截图](docs/images/4image.png)
+
+获取可用模型：
+
+```bash
+curl http://127.0.0.1:8000/v1/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+获取可用模型列表截图：  
+![可用模型列表截图](docs/images/5image.png)
+
+sub2api 调用模型截图：  
+![sub2api 调用模型截图](docs/images/6image.png)
+
 ## 3. 与原项目相比缺失的内容
 
 - 仅支持本地存储（`SERVER_STORAGE_TYPE` 其他值会降级并提示）。
@@ -184,6 +223,7 @@ curl http://127.0.0.1:8000/v1/responses \
 ## 4. 与原项目相比新增的内容
 
 - 新增 `/v1/responses`（OpenAI Responses API 兼容）。
-- 新增“下游管理”页面，支持下游接口开关。
+- 新增“下游管理”页面，支持下游接口开关。  
+  ![下游管理截图](docs/images/2image.png)
 - 静态资源内置，支持单文件二进制部署。
 - 上游 Grok 请求统一走 `curl-impersonate`（更稳定）。
