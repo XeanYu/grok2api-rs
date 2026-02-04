@@ -213,7 +213,7 @@ curl http://127.0.0.1:8000/v1/models \
 ![可用模型列表截图](docs/images/5image.png)
 
 sub2api 调用模型截图：  
-![sub2api 调用模型截图](docs/images/6image.png)
+<img src="docs/images/6image.png" alt="sub2api 调用模型截图" width="50%">
 
 ## 3. 与原项目相比缺失的内容
 
