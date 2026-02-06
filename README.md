@@ -25,6 +25,20 @@
 下游管理截图：  
 ![下游管理截图](docs/images/2image.png)
 
+## v0.2.0 发布说明
+
+- 核心升级：NSFW 开启稳态修复、对话页增强（SSE + Markdown + 图片渲染）、下游接口开关管理。
+- 上游链路：全面切换为内置 `wreq`，不再依赖外部 `curl-impersonate`。
+- 交付形态：支持单文件二进制部署、Docker 部署、GHCR 自动构建发布。
+- 推荐部署镜像：`ghcr.io/xeanyu/grok2api-rs:v0.2.0`（若已发布 tag）或 `ghcr.io/xeanyu/grok2api-rs:latest`。
+
+版本升级示例：
+
+```bash
+docker pull ghcr.io/xeanyu/grok2api-rs:v0.2.0
+IMAGE=ghcr.io/xeanyu/grok2api-rs:v0.2.0 docker compose up -d
+```
+
 ## 下游接口列表（OpenAI 兼容）
 
 | 接口 | 路径 | 开关项 |
@@ -108,7 +122,7 @@ IMAGE=grok2api-rs:local docker compose up -d
 仓库已包含 `.github/workflows/docker-publish.yml`：
 
 - 推送到 `main`：发布 `ghcr.io/<owner>/grok2api-rs:latest`
-- 推送标签（如 `v1.0.0`）：发布同名 tag 镜像
+- 推送标签（如 `v0.2.0`）：发布同名 tag 镜像
 - 构建架构：`linux/amd64` + `linux/arm64`
 
 ## 编译
