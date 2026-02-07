@@ -99,8 +99,13 @@ IMAGE=grok2api-rs:local docker compose up -d
 ### 3) 使用 v0.2.0 镜像升级
 
 ```bash
-docker pull ghcr.io/xeanyu/grok2api-rs:v0.2.0
-IMAGE=ghcr.io/xeanyu/grok2api-rs:v0.2.0 docker compose up -d
+docker pull ghcr.io/xeanyu/grok2api-rs:latest
+```
+```bash
+docker run -d \
+  --name grok2api \
+  -p 8000:8000 \
+  ghcr.io/xeanyu/grok2api-rs:latest
 ```
 
 ### 4) GitHub Actions 自动发布镜像
